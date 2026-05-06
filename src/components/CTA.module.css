@@ -1,0 +1,55 @@
+.cta {
+  padding: 160px 48px;
+  text-align: center;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaMascot {
+  position: absolute;
+  width: 280px;
+  pointer-events: none;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.left {
+  left: 4%;
+  bottom: 10%;
+}
+
+.right {
+  right: 4%;
+  top: 10%;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.h2 {
+  font-family: 'Yeseva One', serif;
+  font-size: clamp(56px, 8vw, 132px);
+  line-height: 0.95;
+  margin: 0 auto 32px;
+  max-width: 12ch;
+  color: var(--cocoa);
+  letter-spacing: -0.02em;
+}
+
+.p {
+  font-size: 19px;
+  color: var(--cocoa-soft);
+  max-width: 520px;
+  margin: 0 auto 40px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}

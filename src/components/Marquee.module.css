@@ -1,0 +1,34 @@
+.marquee {
+  background: var(--cocoa);
+  color: var(--cream);
+  padding: 22px 0;
+  overflow: hidden;
+  border-top: 1px solid var(--cocoa-ink);
+  border-bottom: 1px solid var(--cocoa-ink);
+}
+
+.track {
+  display: flex;
+  gap: 56px;
+  animation: marqueeScroll 36s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.item {
+  font-family: 'Yeseva One', serif;
+  font-size: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 56px;
+}
+
+.item::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: inline-block;
+  flex-shrink: 0;
+}

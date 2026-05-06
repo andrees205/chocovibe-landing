@@ -1,0 +1,120 @@
+.hero {
+  position: relative;
+  padding: 80px 48px 120px;
+  min-height: calc(100vh - 80px);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.heroMark {
+  position: absolute;
+  top: 60px;
+  right: 48px;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cocoa-soft);
+}
+
+.heroCopy {}
+
+.h1 {
+  font-family: 'Yeseva One', serif;
+  font-size: clamp(64px, 9vw, 148px);
+  line-height: 0.92;
+  margin: 0 0 28px;
+  color: var(--cocoa);
+  letter-spacing: -0.02em;
+}
+.h1 em {
+  font-style: italic;
+  color: var(--cocoa-soft);
+}
+
+.heroSub {
+  font-size: 19px;
+  max-width: 520px;
+  margin: 0 0 40px;
+  color: var(--cocoa-soft);
+  line-height: 1.55;
+}
+
+.heroActions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.heroVisual {
+  position: relative;
+  aspect-ratio: 1 / 1.1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroMascot {
+  width: 105%;
+  max-width: 640px;
+  z-index: 2;
+  position: relative;
+  filter: drop-shadow(0 30px 60px rgba(62, 37, 32, 0.18));
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.blob {
+  position: absolute;
+  width: 78%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #E6D9CD 0%, #D9C8B8 60%, #C9B5A2 100%);
+  z-index: 1;
+  animation: blobFloat 9s ease-in-out infinite;
+}
+
+.floatingTag {
+  position: absolute;
+  z-index: 3;
+  background: var(--cream-3);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 10px 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--cocoa);
+  box-shadow: 0 8px 20px rgba(62, 37, 32, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.dotC {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.tag1 { top: 12%; left: -6%; animation: floaty 5s ease-in-out infinite; }
+.tag2 { top: 36%; right: -2%; animation: floaty 5s ease-in-out -1.5s infinite; }
+.tag3 { bottom: 10%; left: 4%; animation: floaty 5s ease-in-out -3s infinite; }
+
+@media (max-width: 1100px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 60px 32px 80px;
+    gap: 40px;
+  }
+  .heroVisual {
+    order: -1;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
