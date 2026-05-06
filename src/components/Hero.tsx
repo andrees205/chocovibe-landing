@@ -52,6 +52,7 @@ export default function Hero() {
       </motion.div>
 
       <motion.div className={styles.heroVisual} variants={visualVariants} initial="hidden" animate="visible">
+        <div className={styles.blobHalo} />
         <div className={styles.blob} />
         <img
           className={styles.heroMascot}

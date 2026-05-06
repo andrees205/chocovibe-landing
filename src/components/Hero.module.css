@@ -67,6 +67,7 @@
   border-radius: 50%;
 }
 
+/* Multi-ring blob with glow aura */
 .blob {
   position: absolute;
   width: 78%;
@@ -75,6 +76,28 @@
   background: radial-gradient(circle at 35% 30%, #E6D9CD 0%, #D9C8B8 60%, #C9B5A2 100%);
   z-index: 1;
   animation: blobFloat 9s ease-in-out infinite;
+  /* outer glow rings */
+  box-shadow:
+    0 0 0 18px rgba(239,229,221,0.25),
+    0 0 0 40px rgba(239,229,221,0.10),
+    0 0 80px 20px rgba(184,162,145,0.35),
+    0 0 140px 40px rgba(184,162,145,0.15);
+}
+
+/* Pulsing halo behind blob */
+.blobHalo {
+  position: absolute;
+  width: 85%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: transparent;
+  z-index: 0;
+  animation: haloPulse 4s ease-in-out infinite;
+}
+
+@keyframes haloPulse {
+  0%, 100% { box-shadow: 0 0 60px 20px rgba(184,162,145,0.18), 0 0 120px 60px rgba(184,162,145,0.08); }
+  50%       { box-shadow: 0 0 90px 35px rgba(184,162,145,0.28), 0 0 180px 80px rgba(184,162,145,0.12); }
 }
 
 .floatingTag {
@@ -92,6 +115,13 @@
   align-items: center;
   gap: 8px;
   white-space: nowrap;
+  backdrop-filter: blur(6px);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.floatingTag:hover {
+  box-shadow: 0 12px 32px rgba(62,37,32,0.18), 0 0 20px -4px var(--tag-glow, rgba(183,194,224,0.6));
+  transform: translateY(-3px) !important;
 }
 
 .dotC {
@@ -100,21 +130,20 @@
   border-radius: 50%;
   display: inline-block;
   flex-shrink: 0;
+  /* subtle pulse on the dot */
+  animation: dotPulse 3s ease-in-out infinite;
 }
 
-.tag1 { top: 12%; left: -6%; animation: floaty 5s ease-in-out infinite; }
-.tag2 { top: 36%; right: -2%; animation: floaty 5s ease-in-out -1.5s infinite; }
-.tag3 { bottom: 10%; left: 4%; animation: floaty 5s ease-in-out -3s infinite; }
+@keyframes dotPulse {
+  0%, 100% { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
+  50%       { box-shadow: 0 0 6px 2px currentColor; opacity: 0.85; }
+}
+
+.tag1 { top: 12%; left: -6%; animation: floaty 5s ease-in-out infinite; --tag-glow: rgba(183,194,224,0.7); }
+.tag2 { top: 36%; right: -2%; animation: floaty 5s ease-in-out -1.5s infinite; --tag-glow: rgba(216,106,60,0.7); }
+.tag3 { bottom: 10%; left: 4%; animation: floaty 5s ease-in-out -3s infinite; --tag-glow: rgba(107,122,82,0.7); }
 
 @media (max-width: 1100px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 60px 32px 80px;
-    gap: 40px;
-  }
-  .heroVisual {
-    order: -1;
-    max-width: 480px;
-    margin: 0 auto;
-  }
+  .hero { grid-template-columns: 1fr; padding: 60px 32px 80px; gap: 40px; }
+  .heroVisual { order: -1; max-width: 480px; margin: 0 auto; }
 }

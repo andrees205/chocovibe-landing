@@ -20,10 +20,7 @@
   margin: 16px 0 0;
   letter-spacing: -0.01em;
 }
-.h2 em {
-  font-style: italic;
-  opacity: 0.7;
-}
+.h2 em { font-style: italic; opacity: 0.7; }
 
 .headP {
   font-size: 18px;
@@ -40,17 +37,95 @@
   gap: 24px;
 }
 
+/* ── Card shell ─────────────────────────────── */
 .card {
+  position: relative;
+  border-radius: 28px;
+  cursor: default;
+  transform-style: preserve-3d;
+  /* subtle base shadow */
+  box-shadow:
+    0 4px 24px rgba(0,0,0,0.35),
+    0 0 0 1px rgba(239,229,221,0.06);
+  transition: box-shadow 0.4s ease;
+}
+
+.card:hover {
+  box-shadow:
+    0 24px 64px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(239,229,221,0.12),
+    0 0 80px -20px var(--glow, #B7C2E0);
+}
+
+/* Spotlight layer — follows --mx / --my */
+.spotlight {
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  background: radial-gradient(
+    380px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255,255,255,0.13) 0%,
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 4;
+}
+.card:hover .spotlight { opacity: 1; }
+
+/* Glow border — thin ring colored by --glow */
+.glowBorder {
+  position: absolute;
+  inset: -1px;
+  border-radius: 29px;
+  background: linear-gradient(
+    135deg,
+    var(--glow, #B7C2E0) 0%,
+    transparent 50%,
+    var(--glow, #B7C2E0) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.card:hover .glowBorder { opacity: 0.45; }
+
+/* ── Card content ───────────────────────────── */
+.cardInner {
+  position: relative;
+  z-index: 2;
   background: var(--cream-3);
   color: var(--cocoa);
-  border-radius: 28px;
+  border-radius: 27px;
   padding: 32px;
   display: flex;
   flex-direction: column;
   min-height: 540px;
-  position: relative;
   overflow: hidden;
-  cursor: default;
+}
+
+/* Shimmer sweep on hover */
+.cardInner::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -120%;
+  width: 60%; height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255,255,255,0.22) 50%,
+    transparent 80%
+  );
+  transform: skewX(-20deg);
+  transition: left 0s;
+  pointer-events: none;
+  z-index: 10;
+}
+.card:hover .cardInner::after {
+  left: 160%;
+  transition: left 0.55s ease;
 }
 
 .moodNum {
@@ -93,7 +168,26 @@
   display: block;
   position: absolute;
   inset: 0;
+  transition: transform 0.5s ease;
 }
+.card:hover .moodImg { transform: scale(1.05); }
+
+/* inner glow bloom on image */
+.imageGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 80%,
+    var(--glow, #B7C2E0) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 2;
+}
+.card:hover .imageGlow { opacity: 0.35; }
 
 .pill {
   display: inline-flex;
