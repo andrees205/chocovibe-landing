@@ -16,36 +16,8 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className={styles.col}>
-          <h4 className={styles.colHead}>Tienda</h4>
-          <ul className={styles.colList}>
-            <li><a href="#">Aura</a></li>
-            <li><a href="#">Boost</a></li>
-            <li><a href="#">Focus</a></li>
-            <li><a href="#">Packs</a></li>
-          </ul>
-        </div>
 
-        <div className={styles.col}>
-          <h4 className={styles.colHead}>Nosotros</h4>
-          <ul className={styles.colList}>
-            <li><a href="#">Nuestra historia</a></li>
-            <li><a href="#">Origen del cacao</a></li>
-            <li><a href="#">Prensa</a></li>
-          </ul>
-        </div>
-
-        <div className={styles.col}>
-          <h4 className={styles.colHead}>Contacto</h4>
-          <ul className={styles.colList}>
-            <li><a href="mailto:chocovibe@gmail.com">chocovibe@gmail.com</a></li>
-            <li><a href="#">chocovibe.com</a></li>
-            <li><a href="#">Stand #5</a></li>
-            <li><a href="#">2203·00000</a></li>
-          </ul>
-        </div>
       </div>
-
       <div className={styles.bottom}>
         <span>© 2026 Chocovibe</span>
         <span>Feeling Dark · Hecho con cacao</span>

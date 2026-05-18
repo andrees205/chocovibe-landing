@@ -56,13 +56,13 @@ export default function Hero() {
         <div className={styles.blob} />
         <img
           className={styles.heroMascot}
-          src="/assets/mascot-boots-alt.jpeg"
+          src="/assets/logo-brown.jpeg"
           alt="Chocovibe mascot"
         />
         {[
           { label: 'Aura · Chill', color: 'var(--aura)', cls: styles.tag1 },
           { label: 'Boost · Energía', color: 'var(--boost)', cls: styles.tag2 },
-          { label: 'Focus · Flow', color: 'var(--focus)', cls: styles.tag3 },
+          { label: 'Focus · Concentración', color: 'var(--focus)', cls: styles.tag3 },
         ].map((tag, i) => (
           <motion.div
             key={tag.label}

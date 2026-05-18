@@ -4,10 +4,10 @@ import styles from './Collection.module.css'
 
 const GALLERY = [
   { id: 'hero', src: '/uploads/product-2.jpeg', cap: '01 · Principal', span: 'col1' },
-  { id: 'g2', src: '/uploads/product-4.jpeg', cap: '02 · Detalle', span: '' },
-  { id: 'g3', src: '/uploads/product-5.jpeg', cap: '03 · Lifestyle', span: '' },
+  { id: 'g2', src: '/assets/focus.jpeg', cap: '02 · Concentración', span: '' },
+  { id: 'g3', src: '/assets/aura.jpeg', cap: '03 · Chill', span: '' },
   { id: 'g4', src: '/uploads/product-3.jpeg', cap: '04 · Textura', span: '' },
-  { id: 'g5', src: '/uploads/product-1.jpeg', cap: '05 · Momento', span: '' },
+  { id: 'g5', src: '/uploads/product-5.jpeg', cap: '05 · Momento', span: '' },
 ]
 
 function GalleryTile({

@@ -5,30 +5,78 @@
   overflow: hidden;
   border-top: 1px solid var(--cocoa-ink);
   border-bottom: 1px solid var(--cocoa-ink);
+  position: relative;
+  /* subtle cursor hint */
+  cursor: default;
 }
 
+/* ── Edge vignettes ──────────────────────────── */
+.fadeLeft,
+.fadeRight {
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.fadeLeft {
+  left: 0;
+  background: linear-gradient(to right, var(--cocoa) 0%, transparent 100%);
+}
+.fadeRight {
+  right: 0;
+  background: linear-gradient(to left, var(--cocoa) 0%, transparent 100%);
+}
+
+/* ── Scrolling track ─────────────────────────── */
 .track {
   display: flex;
-  gap: 56px;
-  animation: marqueeScroll 36s linear infinite;
+  align-items: center;
+  gap: 0;               /* gaps are handled inside .item */
   white-space: nowrap;
   width: max-content;
+  will-change: transform;
 }
 
+/* ── Individual item ─────────────────────────── */
 .item {
   font-family: 'Yeseva One', serif;
   font-size: 44px;
+  line-height: 1;
   display: inline-flex;
   align-items: center;
-  gap: 56px;
+  gap: 40px;
+  padding: 0 40px;
+  /* hover: lighten text */
+  transition: color 0.25s ease;
+}
+.marquee:hover .item {
+  color: rgba(239, 229, 221, 0.55);
+}
+/* keep the hovered item bright */
+.item:hover {
+  color: var(--cream) !important;
 }
 
-.item::after {
-  content: '';
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--cream);
+/* ── Separator dot ───────────────────────────── */
+.dot {
   display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
   flex-shrink: 0;
+  /* gentle pulse */
+  animation: dotPop 3s ease-in-out infinite;
+}
+/* stagger the pulse per position via nth-child would need a loop,
+   so we approximate with animation-delay on the parent item */
+.item:nth-child(4n+1) .dot { animation-delay: 0s;    }
+.item:nth-child(4n+2) .dot { animation-delay: 0.75s; }
+.item:nth-child(4n+3) .dot { animation-delay: 1.5s;  }
+.item:nth-child(4n+0) .dot { animation-delay: 2.25s; }
+
+@keyframes dotPop {
+  0%, 100% { transform: scale(1);    opacity: 0.85; }
+  50%       { transform: scale(1.45); opacity: 1;   }
 }

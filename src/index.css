@@ -74,7 +74,4 @@ body {
   50% { transform: translateY(-10px); }
 }
 
-@keyframes marqueeScroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
+/* marquee scroll is now driven by Framer Motion useAnimationFrame */

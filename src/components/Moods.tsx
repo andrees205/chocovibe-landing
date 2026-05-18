@@ -12,7 +12,7 @@ const MOODS = [
     desc: 'Tu momento de paz en medio del caos. Un chocolate suave que baja el ruido mental, relaja tu vibe y te envuelve en una sensación chill.',
     gradient: 'linear-gradient(135deg, #B7C2E0 0%, #9DAACD 100%)',
     ingredients: 'CACAO · LECHE · AZÚCAR · VAINILLA · MANZANILLA · LAVANDA',
-    image: '/uploads/product-4.jpeg',
+    image: '/assets/aura.jpeg',
   },
   {
     num: '02 / ENERGÍA',
@@ -23,7 +23,7 @@ const MOODS = [
     desc: 'Ese impulso instantáneo cuando andas en modo "sin batería". Un chocolate intenso que te levanta el mood, te activa y te pone en marcha.',
     gradient: 'linear-gradient(135deg, #D86A3C 0%, #B8552E 100%)',
     ingredients: 'CACAO INTENSO · AZÚCAR · LECHE · VAINILLA · CAFEÍNA NATURAL',
-    image: '/uploads/product-2.jpeg',
+    image: '/assets/mascot-boots-alt.jpeg',
   },
   {
     num: '03 / FLOW',
@@ -34,7 +34,7 @@ const MOODS = [
     desc: 'Tu modo "no molestar" en versión chocolate. Te ayuda a centrarte, ordenar ideas y entrar en flow sin distracciones.',
     gradient: 'linear-gradient(135deg, #6B7A52 0%, #4F5C3D 100%)',
     ingredients: 'CACAO OSCURO · AZÚCAR · LECHE · VAINILLA · EXTRACTO DE MATCHA',
-    image: '/uploads/product-1.jpeg',
+    image: '/assets/focus.jpeg',
   },
 ]
 
